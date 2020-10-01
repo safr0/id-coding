@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/LGA.id
+/Data/bin/Debug
+/Data/obj/Debug
+/Logic/bin/Debug
+/Logic/obj/Debug
+/packages
+/Presentation/bin
+/Presentation/obj/Debug
+/Repository/bin/Debug
+/Repository/obj/Debug
