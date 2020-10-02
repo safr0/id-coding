@@ -9,8 +9,8 @@ using System.Web.Mvc;
 namespace Presentation.Controllers
 {
 	public class ScoresController : Controller
-	{
-		private ReportService service = new ReportService();
+	{		
+		private readonly IReportService service = new ReportService();
 
 		// GET: Scores
 		public ActionResult Index()

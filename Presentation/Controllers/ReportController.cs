@@ -7,13 +7,12 @@ using System.Web.Mvc;
 namespace Presentation.Controllers
 {
 	public class ReportController : Controller
-	{
-		private readonly ReportService service = new ReportService();
+	{		
+		private readonly IReportService service= new ReportService();
 
 		// GET: Disadvs
 		public ActionResult Index()
 		{
-
 			ViewData["States"] = service.States.Select(p => new SelectListItem()
 			{
 				Value = p.StateId.ToString(),
