@@ -7,6 +7,18 @@
 				var val = $(this).val();
 				$("#dataPartial").load("/Scores/DataGrid?stateId=" + val);
 			});
+
+            $('#showAll').click(function () {				
+				var selectedStateId = $('#Data_SelectedList').val();
+
+                if ($("#showAll").is(':checked')) {					
+                    $("#dataPartial").load("/Scores/DataGrid?stateId=" + selectedStateId +"&showAll=1");
+				}
+				else {                    
+                    $("#dataPartial").load("/Scores/DataGrid?stateId=" + selectedStateId + "&showAll=0");
+                }
+			});  
+			
 		});
 	</script>
 }
@@ -17,10 +29,11 @@
 <h2>All data by state</h2>
 <div class="col-md-3"></div>
 <div class="row col-md-6">
-	@{
-		List<SelectListItem> states = ViewData["States"] as List<SelectListItem>;
-	}
-	@Html.DropDownList("Data_SelectedList", states)
+    @{ List<SelectListItem> states = ViewData["States"] as List<SelectListItem>; }
+    @Html.DropDownList("Data_SelectedList", states)
+    <label class="form-check-label" for="defaultCheck1">Show All</label>
+    @Html.CheckBox("showAll", false)
+
 </div>
 <div class="col-md-3"></div>
 <br /><br />

@@ -14,7 +14,10 @@ namespace Data.ViewModel
 				return Disadvantage2016.GetValueOrDefault() - Disadvantage2011.GetValueOrDefault();
 			}
 		}
-		public string PlaceName { get; set; }
+		[DisplayName("State Name")]
 		public string StateName { get; set; }
-	}
+		[DisplayName("Place Name")]
+		public string PlaceName { get; set; }		
+        public int? MedianScore { get; set; }
+    }
 }

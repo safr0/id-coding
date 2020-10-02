@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Report\IReportService.cs" />
     <Compile Include="Services\Report\ReportService.cs" />
   </ItemGroup>
   <ItemGroup>
