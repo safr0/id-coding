@@ -18,17 +18,19 @@ namespace Presentation.Controllers
 			ViewData["States"] = service.States.Select(p => new SelectListItem()
 			{
 				Value = p.StateId.ToString(),
-				Text = p.StateName,
-				Selected = (p.StateName.Equals("Victoria", StringComparison.CurrentCultureIgnoreCase))
+				Text = $"{p.StateName}-{p.Median}",
+				Selected = (p.StateName.Equals($"Victoria-{p.Median}", StringComparison.CurrentCultureIgnoreCase))
 			})
 			.ToList();
 
-			return View(service.GetAllData(null));
+			return View(service.GetAllData(null, null));
 		}
-		public ActionResult DataGrid(string stateId)
+		public ActionResult DataGrid(string stateId, string showAll)
 		{
 			int id = stateId != null ? int.Parse(stateId) : -1;
-			return PartialView(service.GetAllData(id));
+			int allScore = showAll != null ? int.Parse(showAll) : -1;
+
+			return PartialView(service.GetAllData(id,allScore));
 		}
 	}
 }

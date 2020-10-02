@@ -7,7 +7,19 @@
 		$("#States_SelectedList").change(function(e){
          var val=$(this).val();
 			$("#reportPartial").load("/Report/ReportGrid?stateId=" +val);
-       });
+        });
+
+        $('#showAll').click(function () {
+            var selectedStateId = $('#States_SelectedList').val();
+
+            if ($("#showAll").is(':checked')) {                
+                $("#reportPartial").load("/Report/ReportGrid?stateId=" + selectedStateId + "&showAll=1");
+            }
+            else {                
+                $("#reportPartial").load("/Report/ReportGrid?stateId=" + selectedStateId + "&showAll=0");
+            }
+        });  
+
     });
 	</script>
 }
@@ -20,11 +32,11 @@
 
 <div class="col-md-3"></div>
 <div class="row col-md-6">
-	@{
-		List<SelectListItem> states = ViewData["States"] as List<SelectListItem>;
-		string vicId = ViewData["VicId"] as string;
-		}
-	@Html.DropDownList("States_SelectedList", states)
+    @{ List<SelectListItem> states = ViewData["States"] as List<SelectListItem>;
+        string vicId = ViewData["VicId"] as string; }
+    @Html.DropDownList("States_SelectedList", states)
+    <label class="form-check-label" for="defaultCheck1">Show All</label>
+    @Html.CheckBox("showAll", false)
 </div>
 <div class="col-md-3"></div>
 <br/><br/>
