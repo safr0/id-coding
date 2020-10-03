@@ -67,6 +67,8 @@
     <Compile Include="LGAContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IReportRepository.cs" />
+    <Compile Include="Repositories\ReportRepository.cs" />
     <Compile Include="Seeding.cs" />
   </ItemGroup>
   <ItemGroup>
