@@ -1,12 +1,15 @@
 ﻿using Data.ViewModel;
+using System;
 using System.Collections.Generic;
 
-namespace Logic.Services.Report
+namespace Repository.Repositories
 {
-    public interface IReportService
+
+    public interface IReportRepository : IDisposable
     {
         IEnumerable<State> States { get; }
-        
+        int VicStateId { get; }
+
         IEnumerable<DataModel> GetAllData(int? stateId, int? allScore);
         IEnumerable<ReportModel> GetDisadges(int? stateId, int? allScore);
     }
